@@ -1,5 +1,8 @@
 package io.github.alexanderjabka.authenticationservice.exception;
 
+import lombok.Getter;
+
+@Getter
 public abstract class ApiException extends RuntimeException {
     private final String code;
 
@@ -8,9 +11,6 @@ public abstract class ApiException extends RuntimeException {
         this.code = code;
     }
 
-    public String getCode() {
-        return code;
-    }
 }
 
 

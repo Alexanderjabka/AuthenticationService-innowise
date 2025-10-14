@@ -3,7 +3,6 @@ package io.github.alexanderjabka.authenticationservice.service;
 import io.github.alexanderjabka.authenticationservice.dto.RegisterRequest;
 import io.github.alexanderjabka.authenticationservice.entity.User;
 import io.github.alexanderjabka.authenticationservice.exception.ConflictException;
-import io.github.alexanderjabka.authenticationservice.exception.NotFoundException;
 import io.github.alexanderjabka.authenticationservice.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;

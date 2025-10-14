@@ -1,12 +1,19 @@
 package io.github.alexanderjabka.authenticationservice.controller;
 
-import io.github.alexanderjabka.authenticationservice.dto.*;
+import io.github.alexanderjabka.authenticationservice.dto.LoginRequest;
+import io.github.alexanderjabka.authenticationservice.dto.RegisterRequest;
+import io.github.alexanderjabka.authenticationservice.dto.TokenResponse;
+import io.github.alexanderjabka.authenticationservice.dto.ValidateTokenRequest;
+import io.github.alexanderjabka.authenticationservice.dto.ValidateTokenResponse;
 import io.github.alexanderjabka.authenticationservice.service.AuthService;
 import io.github.alexanderjabka.authenticationservice.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
