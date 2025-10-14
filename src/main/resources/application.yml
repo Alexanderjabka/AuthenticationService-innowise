@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://postgres:5432/authdb
-    username: auth_user
-    password: authpass
+    url: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
 
   jpa:
     hibernate:
@@ -19,3 +19,8 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:/db/changelog/db.changelog-master.yml
+
+jwt:
+  secret: ${JWT_SECRET}
+  access-token-ttl: ${JWT_ACCESS_TTL:900}
+  refresh-token-ttl: ${JWT_REFRESH_TTL:604800}
