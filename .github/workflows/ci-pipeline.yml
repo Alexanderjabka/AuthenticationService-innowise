@@ -48,20 +48,6 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:16
-        env:
-          POSTGRES_DB: authdb
-          POSTGRES_USER: authuser
-          POSTGRES_PASSWORD: authpass
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd "pg_isready -U authuser -d authdb"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     needs: build
     steps:
       - name: Checkout code
@@ -81,11 +67,6 @@ jobs:
           path: target/
 
       - name: Run tests
-        env:
-          POSTGRES_DB: authdb
-          POSTGRES_USER: authuser
-          POSTGRES_PASSWORD: authpass
-          JWT_SECRET: test-secret
         run: mvn -B test
 
       - name: Upload test results
