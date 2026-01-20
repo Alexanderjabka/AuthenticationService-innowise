@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: auth-service-test
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: test
+    password: test
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: user_schema
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.yml
+
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+
+management:
+  endpoints:
+    enabled-by-default: false
+
+jwt:
+  secret: test-secret-key-for-testing-purposes-only-do-not-use-in-production-must-be-at-least-256-bits
+  access-token-ttl: 900
+  refresh-token-ttl: 604800
+
+JWT_SECRET: test-secret-key-for-testing-purposes-only-do-not-use-in-production-must-be-at-least-256-bits
+
+SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/testdb
+SPRING_DATASOURCE_USERNAME: test
+SPRING_DATASOURCE_PASSWORD: test
